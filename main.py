@@ -4,6 +4,7 @@ import telebot, time
 from init_env import PROD, PORT, WEBHOOK_URL, WEBHOOK_SECRET
 from handlers import bot
 
+
 app = Flask(__name__)
 
 @app.route("/")
