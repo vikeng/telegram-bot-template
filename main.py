@@ -1,7 +1,7 @@
 from log import log_info
 from flask import Flask, request, abort
 import telebot, time
-from init_env import PROD, PORT, WEBHOOK_URL, WEBHOOK_SECRET
+from init_env import PROD, PORT, WEBHOOK_URL, TOKEN
 from handlers import bot
 
 
@@ -12,7 +12,7 @@ def hello_world():
     return "Hello World!!"
 
 # Process webhook calls
-@app.route(f"/{WEBHOOK_SECRET}", methods=['POST'])
+@app.route(f"/{TOKEN}", methods=['POST'])
 def webhook():
     if request.headers.get('content-type') == 'application/json':
         json_string = request.get_data().decode('utf-8')
